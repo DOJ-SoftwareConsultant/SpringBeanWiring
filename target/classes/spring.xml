@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+    <!-- Explicit Bean Wiring in XML Configuration -->
+    <!-- 
+    How many types we can inject a bean 
+    1. Setter Injection
+    2. Constructor Injection
+     -->
+   
+    <!-- bean definitions here -->
+    <!--  1. Setter Injection -->
+	<!--  <bean class="com.doj.spring.Car" id="car">
+	 	  <property name="tyre" ref="tyre"></property>
+	 	  <property name="body" ref="body"></property>
+	 	  <property name="engine" ref="engine"></property>
+	 </bean> -->
+	 
+	  <!--  2. Constructor Injection -->
+	 <bean class="com.doj.spring.Car" id="car">
+	 	  <constructor-arg name="tyre" ref="tyre" ></constructor-arg>
+	 	  <constructor-arg name="body" ref="body"></constructor-arg>
+	 	  <constructor-arg name="engine" ref="engine"></constructor-arg>
+	 </bean>
+	 
+	 <!-- STEEL -->
+	<bean class="com.doj.spring.Body" id="body">
+		<property name="bodyType" value="STEEL"></property>    
+	</bean>
+	
+	<!-- FORD -->
+	<bean class="com.doj.spring.Engine" id="engine">
+	    <property name="engineName" value="FORD"></property>  
+	</bean>
+	
+	<!-- MRF -->	
+	<bean class="com.doj.spring.Tyre" id="tyre">
+	    <property name="tyreName" value="MRF"></property>  
+	</bean>	 
+</beans>
